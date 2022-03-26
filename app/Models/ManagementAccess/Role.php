@@ -32,7 +32,7 @@ class Role extends Model
         return $this->hasMany('App\Models\ManagementAccess\PermissionRole', 'role_id');
     }
 
-    public function RoleUser()
+    public function role_user()
     {
         // 2 Parameter (Path Model, Field Foreign Key)
         return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'role_id');
