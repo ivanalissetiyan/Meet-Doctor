@@ -26,4 +26,16 @@ class PermissionRole extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function permission()
+    {
+        // 3 Parameter (Path Model, Field foreign key, field primary key from tabel hasMany/HasOne)
+        return $this->belongsTo('App\Models\ManagementAccess\PermissionRole', 'permission_id', 'id');
+    }
+
+    public function role()
+    {
+        // 3 Parameter (Path Model, Field foreign key, field primary key from tabel hasMany/HasOne)
+        return $this->belongsTo('App\Models\ManagementAccess\Role', 'role_id', 'id');
+    }
 }

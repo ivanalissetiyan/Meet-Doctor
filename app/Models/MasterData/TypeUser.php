@@ -26,4 +26,11 @@ class TypeUser extends Model
         'updated_at',
         'deleted_at',
     ];
+
+
+    public function detail_user()
+    {
+        // 2 Parameter (Path Model, Field Foreign Key)
+        return $this->hasMany('App\Models\ManagementAccess\DetailUser', 'type_user_id');
+    }
 }

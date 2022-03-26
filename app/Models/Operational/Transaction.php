@@ -20,7 +20,7 @@ class Transaction extends Model
     ];
 
     protected $fillable = [
-        'appointment_id	',
+        'appointment_id',
         'fee_doctor',
         'fee_specialist',
         'fee_hospital',
@@ -31,4 +31,10 @@ class Transaction extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function appointment()
+    {
+        // 3 Parameter (Path Model, Field foreign key, field primary key from tabel hasMany/HasOne)
+        return $this->belongsTo('App\Models\Operational\Appointment', 'appointment_id', 'id');
+    }
 }
