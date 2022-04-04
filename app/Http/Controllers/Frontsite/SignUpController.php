@@ -5,10 +5,21 @@ namespace App\Http\Controllers\Frontsite;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Auth;
 
-
-class LandingController extends Controller
+class SignUpController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,7 @@ class LandingController extends Controller
      */
     public function index()
     {
-        return view('pages.frontsite.landing-page.index');
+        return view('pages.frontsite.sign-up.index');
     }
 
     /**

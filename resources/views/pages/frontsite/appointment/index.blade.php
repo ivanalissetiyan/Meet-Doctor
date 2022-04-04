@@ -1,100 +1,51 @@
 @extends('layouts.default')
 
-@section('title', 'Home')
-<!-- Content -->
-<div class="min-h-screen">
-    <div class="max-w-7xl grid lg:grid-cols-12 mx-auto pt-14 lg:pt-20 pb-20 lg:pb-28 lg:divide-x px-4 lg:px-16">
-        <!-- Detail Payment -->
-        <div class="lg:col-span-7 lg:pl-8 lg:pr-20">
-            <!-- Doctor Information -->
-            <div class="flex flex-wrap items-center space-x-5">
-                <div class="flex-shrink-0">
-                    <img src="../assets/images/doctor-1.png"
-                        class="w-20 h-20 rounded-full bg-center object-cover object-top" alt="Doctor 1" />
+@section('title', 'Appointment')
+
+@section('content')
+    <!-- Content -->
+    <div class="min-h-screen">
+        <div class="lg:max-w-7xl lg:flex items-center mx-auto px-4 lg:px-14 pt-6 py-20 lg:py-24 gap-x-24">
+            <!-- Detail Doctor  -->
+            <div class="lg:w-5/12 lg:border-r h-72 lg:h-[30rem] flex flex-col items-center justify-center text-center">
+                <img src="{{ asset('assets/frontsite/images/doctor-1.png') }}"
+                    class="inline-block w-32 h-32 rounded-full bg-center object-cover object-top" alt="doctor-1" />
+                <div class="text-[#1E2B4F] text-lg font-semibold mt-4">
+                    Dr. Galih Pratama
                 </div>
-
-                <div class="flex-1 space-y-1">
-                    <div class="text-[#1E2B4F] text-lg font-semibold">
-                        Dr. Galih Pratama
-                    </div>
-                    <div class="text-[#AFAEC3]">Cardiologist</div>
-
-                    <!--
-                Icon when mobile is show.
-                star icon mobile: "flex/show", star icon dekstop: "hidden"
-              -->
-                    <div class="lg:hidden flex items-center gap-x-2">
-                        <div class="flex items-center gap-2">
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
-                                    fill="#FFB340" />
-                            </svg>
-
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
-                                    fill="#FFB340" />
-                            </svg>
-
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
-                                    fill="#FFB340" />
-                            </svg>
-
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
-                                    fill="#FFB340" />
-                            </svg>
-
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
-                                    fill="#FFB340" />
-                            </svg>
-                        </div>
-                        <span class="text-[#1E2B4F] font-medium"> (12,495) </span>
-                    </div>
-                </div>
-
-                <!--
-                Icon when desktop is show.
-                star icon mobile: "hidden", star icon dekstop: "flex/show"
-            -->
-                <div class="hidden lg:flex items-center gap-x-2">
+                <div class="text-[#AFAEC3] mt-1">Cardiologist</div>
+                <div class="flex justify-center items-center gap-x-2 mt-4">
                     <div class="flex items-center gap-2">
-                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                            xmlns="{{ url('http://www.w3.org/2000/svg') }}">
                             <path
                                 d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
                                 fill="#FFB340" />
                         </svg>
 
-                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                            xmlns="{{ url('http://www.w3.org/2000/svg') }}">
                             <path
                                 d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
                                 fill="#FFB340" />
                         </svg>
 
-                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                            xmlns="{{ url('http://www.w3.org/2000/svg') }}">
                             <path
                                 d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
                                 fill="#FFB340" />
                         </svg>
 
-                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                            xmlns="{{ url('http://www.w3.org/2000/svg') }}">
                             <path
                                 d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
                                 fill="#FFB340" />
                         </svg>
 
-                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                            xmlns="{{ url('http://www.w3.org/2000/svg') }}">
                             <path
                                 d="M9.04894 0.927052C9.3483 0.00574112 10.6517 0.00573993 10.9511 0.927051L12.4697 5.60081C12.6035 6.01284 12.9875 6.2918 13.4207 6.2918H18.335C19.3037 6.2918 19.7065 7.53141 18.9228 8.10081L14.947 10.9894C14.5966 11.244 14.4499 11.6954 14.5838 12.1074L16.1024 16.7812C16.4017 17.7025 15.3472 18.4686 14.5635 17.8992L10.5878 15.0106C10.2373 14.756 9.7627 14.756 9.41221 15.0106L5.43648 17.8992C4.65276 18.4686 3.59828 17.7025 3.89763 16.7812L5.41623 12.1074C5.55011 11.6954 5.40345 11.244 5.05296 10.9894L1.07722 8.10081C0.293507 7.53141 0.696283 6.2918 1.66501 6.2918H6.57929C7.01252 6.2918 7.39647 6.01284 7.53035 5.60081L9.04894 0.927052Z"
                                 fill="#FFB340" />
@@ -104,141 +55,108 @@
                 </div>
             </div>
 
-            <!-- Appoinment Information -->
-            <div class="mt-16">
-                <h5 class="text-[#1E2B4F] text-lg font-semibold">Appointment</h5>
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Kebutuhan konsultasi</div>
-                    <div class="text-[#1E2B4F] font-medium">Jantung sesak</div>
-                </div>
+            <!-- Form Appointment -->
+            <div class="lg:w-1/3 mt-10 lg:mt-0">
+                <h2 class="text-[#1E2B4F] text-3xl font-semibold leading-normal">
+                    Apply for <br />
+                    New Appointment
+                </h2>
 
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Level</div>
-                    <div class="text-[#1E2B4F] font-medium">Medium</div>
-                </div>
+                <form action="" class="mt-8 space-y-5">
+                    <label class="block">
+                        <select name="topic" id="topic"
+                            class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
+                            placeholder="Topik Konsultasi">
+                            <option disabled selected class="hidden">
+                                Topik Konsultasi
+                            </option>
+                            <option value="Jantung Sesak">Jantung Sesak</option>
+                            <option value="Tekanan Darah Tinggi">
+                                Tekanan Darah Tinggi
+                            </option>
+                            <option value="Gangguan Irama Jantung">
+                                Gangguan Irama Jantung
+                            </option>
+                        </select>
+                    </label>
 
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Dijadwalkan pada</div>
-                    <div class="text-[#1E2B4F] font-medium">12 Januari 2022</div>
-                </div>
+                    <label class="block">
+                        <select name="level" id="level"
+                            class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
+                            placeholder="Level">
+                            <option value="" disabled selected class="hidden">Level</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </label>
 
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Waktu</div>
-                    <div class="text-[#1E2B4F] font-medium">15:30 PM</div>
-                </div>
+                    <label class="relative block">
+                        <input type="text" id="date" name="date"
+                            class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
+                            placeholder="Choose Date" />
+                        <span class="absolute top-0 right-[11px] bottom-1/2 translate-y-[58%]"><svg width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" xmlns="{{ url('http://www.w3.org/2000/svg') }}">
+                                <path
+                                    d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
+                                    stroke="#AFAEC3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 10H21" stroke="#AFAEC3" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M16 2V6" stroke="#AFAEC3" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M8 2V6" stroke="#AFAEC3" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </label>
 
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Status</div>
-                    <div class="text-[#1E2B4F] font-medium">Waiting for Payment</div>
-                </div>
+                    <label class="relative block">
+                        <input type="text" id="time" name="time"
+                            class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
+                            placeholder="Choose Time" />
+                        <span class="absolute top-0 right-[11px] bottom-1/2 translate-y-[58%]"><svg width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" xmlns="{{ url('http://www.w3.org/2000/svg') }}">
+                                <path
+                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                    stroke="#AFAEC3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 6V12L16 14" stroke="#AFAEC3" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </label>
+
+                    <div class="grid">
+                        <a href="{{ route('payment.index') }}"
+                            class="bg-[#0D63F3] rounded-full mt-5 text-white text-lg font-medium px-10 py-3 text-center">Continue</a>
+                    </div>
+                </form>
             </div>
-
-            <!-- Payment Information -->
-            <div class="mt-16">
-                <h5 class="text-[#1E2B4F] text-lg font-semibold">
-                    Payment Information
-                </h5>
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Biaya konsultasi</div>
-                    <div class="text-[#1E2B4F] font-medium">$5,000</div>
-                </div>
-
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Fee dokter</div>
-                    <div class="text-[#1E2B4F] font-medium">$200</div>
-                </div>
-
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Fee hospital</div>
-                    <div class="text-[#1E2B4F] font-medium">$10</div>
-                </div>
-
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">VAT 20%</div>
-                    <div class="text-[#1E2B4F] font-medium">$372</div>
-                </div>
-
-                <div class="flex items-center justify-between mt-5">
-                    <div class="text-[#AFAEC3] font-medium">Grand total</div>
-                    <div class="text-[#2AB49B] font-semibold">$6,500</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Choose Payment -->
-        <div class="lg:col-span-5 lg:pl-20 lg:pr-7 mt-10 lg:mt-0">
-            <h3 class="text-[#1E2B4F] text-3xl font-semibold leading-normal">
-                Choose Your <br />
-                Payment Method
-            </h3>
-            <form action="" x-data="{ payment: '' }" class="mt-8">
-                <!-- List Payment -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-5">
-                    <div class="relative">
-                        <input type="radio" name="payment" x-model="payment" value="master-card" id="master-card"
-                            class="sr-only peer" />
-                        <label
-                            class="flex flex-col justify-center items-center bg-white border-[#EDEDED] cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:ring-[#0D63F3] peer-checked:ring-2 peer-checked:border-transparent rounded-3xl border-2 p-7"
-                            for="master-card">
-                            <img src="../assets/images/master-card.png" class="max-h-[50px] inline-block"
-                                alt="Master card" />
-                        </label>
-                    </div>
-
-                    <div class="relative">
-                        <input type="radio" name="payment" x-model="payment" value="visa" id="visa"
-                            class="sr-only peer" />
-                        <label
-                            class="flex flex-col justify-center items-center bg-white border-[#EDEDED] cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:ring-[#0D63F3] peer-checked:ring-2 peer-checked:border-transparent rounded-3xl border-2 p-7"
-                            for="visa">
-                            <img src="../assets/images/visa.png" class="max-h-[50px] inline-block" alt="Master card" />
-                        </label>
-                    </div>
-
-                    <div class="relative">
-                        <input type="radio" name="payment" x-model="payment" value="cirrus" id="cirrus"
-                            class="sr-only peer" />
-                        <label
-                            class="flex flex-col justify-center items-center bg-white border-[#EDEDED] cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:ring-[#0D63F3] peer-checked:ring-2 peer-checked:border-transparent rounded-3xl border-2 p-7"
-                            for="cirrus">
-                            <img src="../assets/images/cirrus.png" class="max-h-[50px] inline-block"
-                                alt="Master card" />
-                        </label>
-                    </div>
-
-                    <div class="relative">
-                        <input type="radio" name="payment" x-model="payment" value="mewallet" id="mewallet"
-                            class="sr-only peer" />
-                        <label
-                            class="flex flex-col justify-center items-center bg-white border-[#EDEDED] cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:ring-[#0D63F3] peer-checked:ring-2 peer-checked:border-transparent rounded-3xl border-2 p-7"
-                            for="mewallet">
-                            <img src="../assets/images/mewallet.png" class="max-h-[50px] inline-block"
-                                alt="Master card" />
-                            <div class="text-[11px] sm:text-sm mt-3">Balance: $18,000</div>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="mt-10 grid">
-                    <!--
-                button when payment is filled.
-              -->
-                    <a href="booking-success.html" class="bg-[#0D63F3] text-white px-10 py-3 rounded-full text-center"
-                        x-show="payment.length">
-                        Pay Now
-                    </a>
-
-                    <!--
-                button when payment is empty.
-              -->
-                    <span x-show="!payment.length"
-                        class="bg-[#C0CADA] text-[#808997] cursor-not-allowed px-10 py-3 rounded-full text-center">
-                        Pay Now
-                    </span>
-                </div>
-            </form>
         </div>
     </div>
-</div>
-<!-- End Content -->
+    <!-- End Content -->
 @endsection
+
+@push('after-style')
+    <link rel="stylesheet" href="{{ url('https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css') }}" />
+@endpush
+
+@push('after-script')
+    <script src="{{ url('https://cdn.jsdelivr.net/npm/flatpickr') }}"></script>
+    <script>
+        // Date Picker
+        const fpDate = flatpickr('#date', {
+            altInput: true,
+            altFormat: 'j F Y',
+            dateFormat: 'Y-m-d',
+            disableMobile: 'true',
+        });
+
+        // Time Picker
+        const fpTime = flatpickr('#time', {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: 'H:i K',
+            disableMobile: 'true',
+        });
+    </script>
+@endpush

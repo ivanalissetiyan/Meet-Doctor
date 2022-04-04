@@ -5,7 +5,7 @@
               <div class="flex flex-auto justify-between">
 
                   <!-- Logo Brand -->
-                  <a href="index.html" class="flex-shrink-0 flex items-center">
+                  <a href="{{ route('index') }}" class="flex-shrink-0 flex items-center">
                       <img class="h-12 lg:h-16 w-auto" src="{{ asset('assets/frontsite/images/logo.png') }}"
                           alt="Meet Doctor Logo" />
                   </a>
@@ -44,7 +44,7 @@
 
               <!-- Button (no authenticated) -->
               <div class="hidden lg:ml-10 lg:flex lg:items-center">
-                  <a href="src/pages/sign-in.html"
+                  <a href="{{ route('sign-in.index') }}"
                       class="inline-flex items-center rounded-full text-[#1E2B4F] text-lg font-medium bg-[#F2F6FE] px-10 py-3">
                       Sign In
                   </a>
