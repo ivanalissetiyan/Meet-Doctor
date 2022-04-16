@@ -1,13 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Frontsite;
+namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+// use library here
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
+
+// use everything here
+// use Gate;
 use Auth;
 
-class SignUpController extends Controller
+// use model here
+use App\Models\ManagementAccess\Permission;
+
+class PermissionController extends Controller
 {
 
     /**
@@ -27,7 +36,9 @@ class SignUpController extends Controller
      */
     public function index()
     {
-        return view('pages.frontsite.sign-up.index');
+        $permission = Permission::all();
+
+        return view('pages.backsite.management-access.permission.index');
     }
 
     /**
@@ -37,7 +48,7 @@ class SignUpController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -48,7 +59,7 @@ class SignUpController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -59,7 +70,7 @@ class SignUpController extends Controller
      */
     public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -70,7 +81,7 @@ class SignUpController extends Controller
      */
     public function edit($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -82,7 +93,7 @@ class SignUpController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -93,6 +104,6 @@ class SignUpController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return abort(404);
     }
 }

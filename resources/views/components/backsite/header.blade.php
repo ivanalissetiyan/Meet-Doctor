@@ -109,9 +109,14 @@
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                 href="user-profile.html"><i class="ft-user"></i> Edit Profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="login-with-bg-image.html"><i class="ft-power"></i>
-                                Logout</a>
-                        </div>
+                            <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                class="dropdown-item" href="{{ route('logout') }}"><i class="ft-power"></i>
+                                Logout
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </a>
                     </li>
 
                 </ul>

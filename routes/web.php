@@ -4,11 +4,24 @@ use Illuminate\Support\Facades\Route;
 
 // frontsite
 use App\Http\Controllers\Frontsite\LandingController;
-use App\Http\Controllers\Frontsite\AppointmentController;
+use App\Http\Controllers\Frontsite\AppointmentController as FrontsiteAppointment;
 use App\Http\Controllers\Frontsite\PaymentController;
+use App\Http\Controllers\Frontsite\SuccessRegisterController;
 
 // backsite
 use App\Http\Controllers\Backsite\DashboardController;
+use App\Http\Controllers\Backsite\TypeUserController;
+use App\Http\Controllers\Backsite\SpecialistController;
+use App\Http\Controllers\Backsite\DoctorController;
+use App\Http\Controllers\Backsite\ConfigPaymentController;
+use App\Http\Controllers\Backsite\ConsultationController;
+use App\Http\Controllers\Backsite\PermissionController;
+use App\Http\Controllers\Backsite\RoleController;
+use App\Http\Controllers\Backsite\AppointmentController as BacksiteAppointment;
+use App\Http\Controllers\Backsite\TransactionController;
+use App\Http\Controllers\Backsite\UserController;
+use App\Http\Controllers\Backsite\ReportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,16 +39,52 @@ Route::resource('/', LandingController::class);
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     // appointment page
-    Route::resource('appointment', AppointmentController::class);
+    Route::resource('appointment', FrontsiteAppointment::class);
 
     // payment page
     Route::resource('payment', PaymentController::class);
+
+    // Succes Page
+    Route::resource('success-register', SuccessRegisterController::class);
 });
 
 Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']], function () {
 
     // dashboard
     Route::resource('dashboard', DashboardController::class);
+
+    // Type User
+    Route::resource('type_user', TypeUserController::class);
+
+    // Specialist
+    Route::resource('specialist', SpecialistController::class);
+
+    // Doctor
+    Route::resource('doctor', DoctorController::class);
+
+    // Config Payment
+    Route::resource('config_payment', ConfigPaymentController::class);
+
+    // Consultation 
+    Route::resource('consultation', ConsultationController::class);
+
+    // Permission
+    Route::resource('permission', PermissionController::class);
+
+    // Role
+    Route::resource('role', RoleController::class);
+
+    // Appointment
+    Route::resource('appointment', BacksiteAppointment::class);
+
+    // Transaction
+    Route::resource('transaction', TransactionController::class);
+
+    // User
+    Route::resource('user', UserController::class);
+
+    // Report
+    Route::resource('report', ReportController::class);
 });
 
 // Route::get('/', function () {
