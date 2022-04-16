@@ -9,8 +9,7 @@
         <div class="content-overlay"></div>
         <div class="content-wrapper">
 
-            Home tess HAHHAHA
-            SIP SIP
+            Home Ivan ALissetiyan
 
         </div>
     </div>
