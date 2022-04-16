@@ -9,7 +9,7 @@
         <div class="content-overlay"></div>
         <div class="content-wrapper">
 
-            Home tess
+            Home
 
         </div>
     </div>
