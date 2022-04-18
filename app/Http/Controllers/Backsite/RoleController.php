@@ -19,6 +19,9 @@ use Auth;
 
 // use model here
 use App\Models\ManagementAccess\Role;
+use App\Models\ManagementAccess\RoleUser;
+use App\Models\ManagementAccess\Permission;
+use App\Models\ManagementAccess\PermissionRole;
 
 class RoleController extends Controller
 {
@@ -40,8 +43,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $role = Role::all();
-        return view('pages.backsite.management-access.role.index');
+        $role = Role::orderBy('created_at', 'desc')->get();
+
+        return view('pages.backsite.management-access.role.index', compact('role'));
     }
 
     /**

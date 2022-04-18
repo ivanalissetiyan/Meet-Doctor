@@ -41,7 +41,7 @@ class ConsultationController extends Controller
     {
         $consultation = Consultation::orderBy('created_at', 'desc')->get();
 
-        return view('pages.backsite.master-data.consultation.index');
+        return view('pages.backsite.master-data.consultation.index', compact('consultation'));
     }
 
     /**

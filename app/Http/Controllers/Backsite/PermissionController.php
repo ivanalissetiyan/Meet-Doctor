@@ -15,6 +15,9 @@ use Auth;
 
 // use model here
 use App\Models\ManagementAccess\Permission;
+use App\Models\ManagementAccess\PermissionRole;
+use App\Models\ManagementAccess\Role;
+use App\Models\ManagementAccess\RoleUser;
 
 class PermissionController extends Controller
 {
@@ -38,7 +41,7 @@ class PermissionController extends Controller
     {
         $permission = Permission::all();
 
-        return view('pages.backsite.management-access.permission.index');
+        return view('pages.backsite.management-access.permission.index', compact('permission'));
     }
 
     /**
