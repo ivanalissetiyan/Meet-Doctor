@@ -20,7 +20,9 @@ use App\Http\Controllers\Backsite\RoleController;
 use App\Http\Controllers\Backsite\AppointmentController as BacksiteAppointment;
 use App\Http\Controllers\Backsite\TransactionController;
 use App\Http\Controllers\Backsite\UserController;
-use App\Http\Controllers\Backsite\ReportController;
+use App\Http\Controllers\Backsite\HospitalPatientController;
+use App\Http\Controllers\Backsite\ReportAppointmentController;
+use App\Http\Controllers\Backsite\ReportTransactionController;
 
 
 /*
@@ -83,8 +85,14 @@ Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['aut
     // User
     Route::resource('user', UserController::class);
 
-    // Report
-    Route::resource('report', ReportController::class);
+    // hospital patient
+    Route::resource('hospital_patient', HospitalPatientController::class);
+
+    // report appointment
+    Route::resource('appointment', ReportAppointmentController::class);
+
+    // report transaction
+    Route::resource('transaction', ReportTransactionController::class);
 });
 
 // Route::get('/', function () {
