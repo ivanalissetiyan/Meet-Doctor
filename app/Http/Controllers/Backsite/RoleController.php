@@ -84,7 +84,11 @@ class RoleController extends Controller
     public function show(Role $role)
     {
         abort_if(Gate::denies('role_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        return view('pages.backsite.management-access.role.index', compact('role'));
+
+        // need more notes here
+        $role->load('permission');
+
+        return view('pages.backsite.management-access.role.show', compact('role'));
     }
 
     /**
@@ -100,7 +104,8 @@ class RoleController extends Controller
         // need more notes here
         $permission = Permission::all();
         $role->load('permission');
-        return view('pages.backsite.management-access.role.edit', compact('role'));
+
+        return view('pages.backsite.management-access.role.edit', compact('permission', 'role'));
     }
 
     /**
@@ -113,7 +118,7 @@ class RoleController extends Controller
     public function update(UpdateRoleRequest $request, Role $role)
     {
         $data = $request->all();
-        $role->update($data);
+        $role->permission()->sync($request->input('permission', []));
 
         alert()->success('Success Message', 'Succesfully updated new Role');
         return redirect()->route('backsite.role.index');
