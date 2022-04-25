@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 // use everything here
-// use Gate;
+use Illuminate\Support\Facades\Gate;
 use Auth;
 
 // use model here
@@ -42,11 +42,11 @@ class HospitalPatientController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('hospital_patient_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         // for table grid
-        $hospital_patient = User::whereHas('detail_user', function (Builder $query) {
-            $query->where('type_user_id', 3); //Hanya nge load data pasien yang ber id 3 di tabel type user
-        })->orderBy('created_at', 'desc')
-            ->get();
+        $hospital_patient = User::whereHas('detail_user', function ($query) {
+            return $query->where('type_user_id', 3);
+        })->orderBy('created_at', 'desc')->get();
 
         return view('pages.backsite.operational.hospital-patient.index', compact('hospital_patient'));
     }

@@ -17,8 +17,8 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 
 // use everything here
-// use Gate;
-use Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 // use model here
 use App\Models\User;
@@ -49,6 +49,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $user = User::orderBy('created_at', 'desc')->get();
         $type_user = TypeUser::orderBy('name', 'asc')->get();
         $role = Role::all()->pluck('title', 'id');
@@ -104,6 +106,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $user->load('role');
+
         return view('pages.backsite.management-access.user.show', compact('user'));
     }
 
@@ -115,6 +121,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $role = Role::all()->pluck('title', 'id');
         $type_user = TypeUser::orderBy('name', 'asc')->get();
@@ -158,6 +165,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+
+        abort_if(Gate::denies('user_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $user->forceDelete();
         alert()->success('Success Message', 'Succesfully delete data user');
         return back();

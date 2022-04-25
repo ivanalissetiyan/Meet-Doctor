@@ -41,6 +41,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
+        abort_if(Gate::denies('doctor_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $doctor = Doctor::orderBy('created_at', 'desc')->get();
 
         $specialist = Specialist::orderBy('name', 'desc')->get();
