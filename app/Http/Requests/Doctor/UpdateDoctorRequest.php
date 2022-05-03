@@ -21,6 +21,7 @@ class UpdateDoctorRequest extends FormRequest
     {
 
         abort_if(Gate::denies('doctor_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return true;
     }
 
@@ -42,7 +43,7 @@ class UpdateDoctorRequest extends FormRequest
                 'required', 'string', 'max:255',
             ],
             'photo' => [
-                'nullable', 'string', 'max:10000',
+                'nullable', 'mimes:jpeg,svg,png', 'max:10000',
             ],
         ];
     }

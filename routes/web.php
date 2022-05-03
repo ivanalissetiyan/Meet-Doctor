@@ -41,6 +41,7 @@ Route::resource('/', LandingController::class);
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     // appointment page
+    Route::get('appointment/doctor/{id}', [AppointmentController::class, 'appointment'])->name('appointment.doctor');
     Route::resource('appointment', FrontsiteAppointment::class);
 
     // payment page

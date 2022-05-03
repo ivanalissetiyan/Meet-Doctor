@@ -24,11 +24,15 @@ class LandingController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responses
      */
     public function index()
     {
-        return view('pages.frontsite.landing-page.index');
+        $specialist = Specialist::orderBy('name', 'desc')->limit(5)->get();
+        $doctor = Doctor::orderBy('created_at', 'desc')->limit(4)->get();
+
+
+        return view('pages.frontsite.landing-page.index', compact('specialist', 'doctor'));
     }
 
     /**

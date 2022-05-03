@@ -134,7 +134,7 @@ class RoleController extends Controller
     {
         abort_if(Gate::denies('role_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $role->forceDelete();
+        $role->Delete();
         alert()->success('Success Message', 'Succesfully delete data role');
         return back();
     }
