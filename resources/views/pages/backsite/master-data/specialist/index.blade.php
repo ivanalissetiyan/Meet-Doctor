@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 {{-- set title --}}
-@section('title', 'Doctor')
+@section('title', 'Specialist')
 
 @section('content')
 
@@ -42,7 +42,7 @@
             </div>
 
             {{-- add card --}}
-            {{-- @can('doctor_create')
+            @can('specialist_create')
                 <div class="content-body">
                     <section id="add-home">
                         <div class="row">
@@ -66,8 +66,9 @@
                                     <div class="card-content collapse hide">
                                         <div class="card-body card-dashboard">
 
-                                            <form class="form form-horizontal" action="{{ route('backsite.doctor.store') }}"
-                                                method="POST" enctype="multipart/form-data">
+                                            <form class="form form-horizontal"
+                                                action="{{ route('backsite.specialist.store') }}" method="POST"
+                                                enctype="multipart/form-data">
 
                                                 @csrf
 
@@ -75,28 +76,6 @@
                                                     <div class="form-section">
                                                         <p>Please complete the input <code>required</code>, before you click the
                                                             submit button.</p>
-                                                    </div>
-
-                                                    <div
-                                                        class="form-group row {{ $errors->has('specialist_id') ? 'has-error' : '' }}">
-                                                        <label class="col-md-3 label-control">Specialist <code
-                                                                style="color:red;">required</code></label>
-                                                        <div class="col-md-9 mx-auto">
-                                                            <select name="specialist_id" id="specialist_id"
-                                                                class="form-control select2" required>
-                                                                <option value="{{ '' }}" disabled selected>Choose
-                                                                </option>
-                                                                @foreach ($specialist as $key => $specialist_item)
-                                                                    <option value="{{ $specialist_item->id }}">
-                                                                        {{ $specialist_item->name }}</option>
-                                                                @endforeach
-                                                            </select>
-
-                                                            @if ($errors->has('specialist_id'))
-                                                                <p style="font-style: bold; color: red;">
-                                                                    {{ $errors->first('specialist_id') }}</p>
-                                                            @endif
-                                                        </div>
                                                     </div>
 
                                                     <div class="form-group row">
@@ -115,44 +94,19 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="fee">Fee <code
+                                                        <label class="col-md-3 label-control" for="price">Price <code
                                                                 style="color:red;">required</code></label>
                                                         <div class="col-md-9 mx-auto">
-                                                            <input type="text" id="fee" name="fee" class="form-control"
-                                                                placeholder="example fee 10000" value="{{ old('fee') }}"
+                                                            <input type="text" id="price" name="price" class="form-control"
+                                                                placeholder="example price 10000" value="{{ old('price') }}"
                                                                 autocomplete="off"
                                                                 data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 0, 'digitsOptional': 0, 'prefix': 'IDR ', 'placeholder': '0'"
                                                                 required>
 
-                                                            @if ($errors->has('fee'))
+                                                            @if ($errors->has('price'))
                                                                 <p style="font-style: bold; color: red;">
-                                                                    {{ $errors->first('fee') }}</p>
+                                                                    {{ $errors->first('price') }}</p>
                                                             @endif
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="photo">Photo <code
-                                                                style="color:red;">required</code></label>
-                                                        <div class="col-md-9 mx-auto">
-                                                            <div class="custom-file">
-                                                                <input type="file"
-                                                                    accept="image/png, image/svg, image/jpeg, image/jpg"
-                                                                    class="custom-file-input" id="photo" name="photo" required>
-                                                                <label class="custom-file-label" for="photo"
-                                                                    aria-describedby="photo">Choose File</label>
-                                                            </div>
-
-                                                            <p class="text-muted"><small class="text-danger">Hanya dapat
-                                                                    mengunggah 1 file</small><small> dan yang dapat digunakan
-                                                                    JPEG, SVG, PNG & Maksimal ukuran file hanya 10
-                                                                    MegaBytes</small></p>
-
-                                                            @if ($errors->has('photo'))
-                                                                <p style="font-style: bold; color: red;">
-                                                                    {{ $errors->first('photo') }}</p>
-                                                            @endif
-
                                                         </div>
                                                     </div>
 
@@ -174,10 +128,10 @@
                         </div>
                     </section>
                 </div>
-            @endcan --}}
+            @endcan
 
             {{-- table card --}}
-            @can('doctor_table')
+            @can('consultation_table')
                 <div class="content-body">
                     <section id="table-home">
                         <!-- Zero configuration table -->
@@ -215,7 +169,7 @@
                                                                 <td>{{ isset($specialist_item->created_at) ? date('d/m/Y H:i:s', strtotime($specialist_item->created_at)) : '' }}
                                                                 </td>
                                                                 <td>{{ $specialist_item->name ?? '' }}</td>
-                                                                <td>{{ 'Rp ' . number_format($specialist_item->price) ?? '' }}
+                                                                <td>{{ 'IDR ' . number_format($specialist_item->price) ?? '' }}
                                                                 </td>
                                                                 <td class="text-center">
 
@@ -226,7 +180,7 @@
                                                                             aria-expanded="false">Action</button>
                                                                         <div class="dropdown-menu">
 
-                                                                            @can('doctor_show')
+                                                                            {{-- @can('doctor_show')
                                                                                 <a href="#mymodal"
                                                                                     data-remote="{{ route('backsite.doctor.show', $specialist_item->id) }}"
                                                                                     data-toggle="modal" data-target="#mymodal"
@@ -234,18 +188,18 @@
                                                                                     class="dropdown-item">
                                                                                     Show
                                                                                 </a>
-                                                                            @endcan
+                                                                            @endcan --}}
 
-                                                                            @can('doctor_edit')
+                                                                            @can('specialist_edit')
                                                                                 <a class="dropdown-item"
-                                                                                    href="{{ route('backsite.doctor.edit', $specialist_item->id) }}">
+                                                                                    href="{{ route('backsite.specialist.edit', $specialist_item->id) }}">
                                                                                     Edit
                                                                                 </a>
                                                                             @endcan
 
-                                                                            @can('doctor_delete')
+                                                                            @can('specialist_delete')
                                                                                 <form
-                                                                                    action="{{ route('backsite.doctor.destroy', $specialist_item->id) }}"
+                                                                                    action="{{ route('backsite.specialist.destroy', $specialist_item->id) }}"
                                                                                     method="POST"
                                                                                     onsubmit="return confirm('Are you sure want to delete this data ?');">
                                                                                     <input type="hidden" name="_method"

@@ -66,6 +66,10 @@ class SpecialistController extends Controller
         // get all request from frontsite
         $data = $request->all();
 
+        // re format before push to table
+        $data['price'] = str_replace(',', '', $data['price']);
+        $data['price'] = str_replace('IDR ', '', $data['price']);
+
         // store to database
         $specialist = Specialist::create($data);
 
@@ -107,10 +111,16 @@ class SpecialistController extends Controller
     public function update(UpdateSpecialistRequest $request, Specialist $specialist)
     {
         $data = $request->all();
+
+        // re format before push to table
+        $data['price'] = str_replace(',', '', $data['price']);
+        $data['price'] = str_replace('IDR ', '', $data['price']);
+
+        // Update to database
         $specialist->update($data);
 
         alert()->success('Success Message', 'Succesfully updated new specialist');
-        return redirect()->route('backsite.specialits.index');
+        return redirect()->route('backsite.specialist.index');
     }
 
     /**
