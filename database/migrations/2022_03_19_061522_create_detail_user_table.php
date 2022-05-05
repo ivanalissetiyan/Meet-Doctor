@@ -22,6 +22,7 @@ class CreateDetailUserTable extends Migration
             $table->longText('photo')->nullable();
             $table->enum('gender', ['1', '2'])->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

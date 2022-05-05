@@ -56,6 +56,8 @@ class ReportTransactionController extends Controller
             // other admin for doctor & patient ( task for everyone here )
             $transaction = Transaction::orderBy('created_at', 'desc')->get();
         }
+
+        return view('pages.backsite.operational.transaction.index', compact('transaction'));
     }
 
     /**
