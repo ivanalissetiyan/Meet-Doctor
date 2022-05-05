@@ -8,12 +8,12 @@
         <div class="lg:max-w-7xl lg:flex items-center mx-auto px-4 lg:px-14 pt-6 py-20 lg:py-24 gap-x-24">
             <!-- Detail Doctor  -->
             <div class="lg:w-5/12 lg:border-r h-72 lg:h-[30rem] flex flex-col items-center justify-center text-center">
-                <img src="{{ asset('assets/frontsite/images/doctor-1.png') }}"
+                <img src={{ url(Storage::url($doctor->photo)) }}
                     class="inline-block w-32 h-32 rounded-full bg-center object-cover object-top" alt="doctor-1" />
                 <div class="text-[#1E2B4F] text-lg font-semibold mt-4">
-                    Dr. Galih Pratama
+                    {{ $doctor->name ?? '' }}
                 </div>
-                <div class="text-[#AFAEC3] mt-1">Cardiologist</div>
+                <div class="text-[#AFAEC3] mt-1">{{ $doctor->specialist->name ?? '' }}</div>
                 <div class="flex justify-center items-center gap-x-2 mt-4">
                     <div class="flex items-center gap-2">
                         <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
@@ -62,32 +62,32 @@
                     New Appointment
                 </h2>
 
-                <form action="" class="mt-8 space-y-5">
+                <form action="{{ route('appointment.store') }}" method="post" enctype="multipart/form-data"
+                    class="mt-8 space-y-5">
+
+                    @csrf
+
                     <label class="block">
-                        <select name="topic" id="topic"
+                        <select name="consultation_id" id="consultation_id"
                             class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
                             placeholder="Topik Konsultasi">
                             <option disabled selected class="hidden">
                                 Topik Konsultasi
                             </option>
-                            <option value="Jantung Sesak">Jantung Sesak</option>
-                            <option value="Tekanan Darah Tinggi">
-                                Tekanan Darah Tinggi
-                            </option>
-                            <option value="Gangguan Irama Jantung">
-                                Gangguan Irama Jantung
-                            </option>
+                            @foreach ($consultation as $consultation_item)
+                                <option value="{{ $consultation_item->id }}">{{ $consultation_item->name }}</option>
+                            @endforeach
                         </select>
                     </label>
 
                     <label class="block">
-                        <select name="level" id="level"
+                        <select name="level_id" id="level_id"
                             class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
                             placeholder="Level">
                             <option value="" disabled selected class="hidden">Level</option>
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
+                            <option value="1">Low</option>
+                            <option value="1">Medium</option>
+                            <option value="1">High</option>
                         </select>
                     </label>
 
@@ -125,9 +125,12 @@
                         </span>
                     </label>
 
+                    <input type="hidden" name="doctor_id" value="{{ $doctor->id ?? '' }}">
+
                     <div class="grid">
-                        <a href="{{ route('payment.index') }}"
-                            class="bg-[#0D63F3] rounded-full mt-5 text-white text-lg font-medium px-10 py-3 text-center">Continue</a>
+                        <button type="submit"
+                            class="bg-[#0D63F3] rounded-full mt-5 text-white text-lg font-medium px-10 py-3 text-center"
+                            onclick="return confirm('Are you sure want to confirm this appointment ?')">Continue</button>
                     </div>
                 </form>
             </div>
@@ -153,9 +156,10 @@
 
         // Time Picker
         const fpTime = flatpickr('#time', {
+            time_24hr: true,
             enableTime: true,
             noCalendar: true,
-            dateFormat: 'H:i K',
+            dateFormat: 'H:i',
             disableMobile: 'true',
         });
     </script>

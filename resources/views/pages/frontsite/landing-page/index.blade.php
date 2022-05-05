@@ -135,6 +135,7 @@
                             <div class="flex items-center justify-between mt-5">
                                 <div>
                                     <div class="text-[#1E2B4F] text-lg font-semibold">{{ $doctor_item->name ?? '' }}</div>
+                                    {{-- variabel -> model -> field --}}
                                     <div class="text-[#AFAEC3] mt-1">{{ $doctor_item->specialist->name ?? '' }}</div>
                                 </div>
                                 <div class="flex items-center space-x-2">
