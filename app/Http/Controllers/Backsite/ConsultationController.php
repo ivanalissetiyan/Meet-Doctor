@@ -68,7 +68,7 @@ class ConsultationController extends Controller
         $consultation = Consultation::create($data);
 
         alert()->success('Success Message', 'Successfully added new Consultation');
-        return redirect()->route('backsite.Consultation.index');
+        return redirect()->route('backsite.consultation.index');
     }
 
     /**
@@ -80,7 +80,7 @@ class ConsultationController extends Controller
     public function show($id)
     {
         abort_if(Gate::denies('consultation_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        return view('pages.backsite.master-data.consultation.show', compact('consultation'));
+        return view('pages.backsite.consultation.show', compact('consultation'));
     }
 
     /**
@@ -92,7 +92,7 @@ class ConsultationController extends Controller
     public function edit(Consultation $consultation)
     {
         abort_if(Gate::denies('consultation_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        return view('pages.backsite.master-data.consultation.show', compact('consultation'));
+        return view('pages.backsite.master-data.consultation.edit', compact('consultation'));
     }
 
     /**

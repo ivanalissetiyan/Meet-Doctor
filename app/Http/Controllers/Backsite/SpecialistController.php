@@ -41,8 +41,8 @@ class SpecialistController extends Controller
     {
         abort_if(Gate::denies('specialist_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $specialist = Specialist::orderBy('created_at', 'desc')->get();
-        return view('pages.backsite.master-data.specialist.index');
+        $specialist = Specialist::orderBy('name', 'desc')->get();
+        return view('pages.backsite.master-data.specialist.index', compact('specialist'));
     }
 
     /**

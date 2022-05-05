@@ -88,17 +88,17 @@
                                                                 </td>
                                                                 <td>{{ $transaction_item->appointment->user->name ?? '' }}
                                                                 </td>
-                                                                <td>{{ 'IDR ' . number_format($transaction_item->fee_doctor) ?? '' }}
+                                                                <td>{{ 'Rp ' . number_format($transaction_item->fee_doctor) ?? '' }}
                                                                 </td>
-                                                                <td>{{ 'IDR ' . number_format($transaction_item->fee_specialist) ?? '' }}
+                                                                <td>{{ 'Rp ' . number_format($transaction_item->fee_specialist) ?? '' }}
                                                                 </td>
-                                                                <td>{{ 'IDR ' . number_format($transaction_item->fee_hospital) ?? '' }}
+                                                                <td>{{ 'Rp ' . number_format($transaction_item->fee_hospital) ?? '' }}
                                                                 </td>
-                                                                <td>{{ 'IDR ' . number_format($transaction_item->sub_total) ?? '' }}
+                                                                <td>{{ 'Rp ' . number_format($transaction_item->sub_total) ?? '' }}
                                                                 </td>
-                                                                <td>{{ 'IDR ' . number_format($transaction_item->vat) ?? '' }}
+                                                                <td>{{ 'Rp ' . number_format($transaction_item->vat) ?? '' }}
                                                                 </td>
-                                                                <td>{{ 'IDR ' . number_format($transaction_item->total) ?? '' }}
+                                                                <td>{{ 'Rp ' . number_format($transaction_item->total) ?? '' }}
                                                                 </td>
                                                             </tr>
                                                         @empty
